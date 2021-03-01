@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateLoginForm } from '../actions/loginFormActions';
+import { updateLoginForm, resetLoginForm } from '../actions/loginFormActions';
 import { login } from '../actions/currentUserActions';
 
 const Login = ({ loginFormData, updateLoginForm, login}) => {
@@ -33,6 +33,4 @@ const mapStateToProps = state => {
   }
 }
 
-//const mapDispatchToProps 
-
-export default connect(mapStateToProps, { updateLoginForm, login })(Login);
+export default connect(mapStateToProps, { updateLoginForm, resetLoginForm, login })(Login);

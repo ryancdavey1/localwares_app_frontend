@@ -1,8 +1,10 @@
+import { resetLoginForm } from '../actions/loginFormActions';
+import { getBusinesses }  from '../actions/businessActions'
 // synchronous action creators
 export const setCurrentUser = user => {
   return {
     type: "SET_CURRENT_USER",
-    user: user
+    user
   }
 }
 
@@ -29,7 +31,8 @@ export const login = credentials => {
         if (user.error) {
           alert(user.error)
         } else {
-          dispatch(setCurrentUser(user))
+          dispatch(setCurrentUser(user.data))
+          dispatch(resetLoginForm())
         }
       })
       .catch(console.log)
@@ -60,11 +63,12 @@ export const getCurrentUser = () => {
       },
     })
       .then(res => res.json())
-      .then(user => {
-        if (user.error) {
-          alert(user.error)
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
         } else {
-          dispatch(setCurrentUser(user))
+          dispatch(setCurrentUser(response.data))
+          dispatch(getBusinesses())
         }
       })
       .catch(console.log)
