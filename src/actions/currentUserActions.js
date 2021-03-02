@@ -1,4 +1,5 @@
 import { resetLoginForm } from '../actions/loginFormActions';
+import { resetSignupForm } from '../actions/signupFormActions';
 import { getBusinesses }  from '../actions/businessActions'
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -16,7 +17,6 @@ export const clearCurrentUser = () => {
 
 // asynchronous action creators
 export const login = credentials => {
-  console.log(credentials);
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -51,6 +51,33 @@ export const logout = () => {
     })
   }
 }
+
+export const signup = credentials => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    }
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(res => res.json())
+      .then(user => {
+        if (user.error) {
+          alert(user.error)
+        } else {
+          dispatch(setCurrentUser(user.data))
+          dispatch(resetSignupForm())
+        }
+      })
+      .catch(console.log)
+  }
+}
+
 
 export const getCurrentUser = () => {
   console.log("DISPATCH GET CURRENT USER")

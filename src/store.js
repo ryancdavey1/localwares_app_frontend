@@ -2,6 +2,7 @@ import { createStore,  applyMiddleware, compose, combineReducers } from 'redux';
 import usersReducer from './reducers/usersReducer';
 import currentUserReducer from './reducers/currentUserReducer';
 import loginFormReducer from './reducers/loginFormReducer';
+import signupFormReducer from './reducers/signupFormReducer';
 import businessesReducer from './reducers/businessesReducer';
 import thunk from 'redux-thunk';
 
@@ -9,7 +10,8 @@ const reducer = combineReducers({
   users: usersReducer,
   currentUser: currentUserReducer,
   loginForm: loginFormReducer,
-  businesses: businessesReducer
+  businesses: businessesReducer,
+  signupForm: signupFormReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
