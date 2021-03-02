@@ -5,10 +5,11 @@ import { getCurrentUser } from './actions/currentUserActions.js'
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Signup from './components/Signup';
+import Home from './components/Home'
 import BusinessList from './components/BusinessList';
 import NavBar from './components/NavBar';
 import MainContainer from './components/MainContainer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -18,15 +19,20 @@ class App extends React.Component {
   }
 
   render() {
-    // think about refactoring to navbar
+    
+    const {loggedIn } = this.props
+    console.log("This is loggedIn" + loggedIn)
     return (
       <div className="App">
-        <NavBar />
-        
-        <Route exact path='/signup' component={Signup}/>
+        {/* <NavBar /> */}
+        {loggedIn ? <Logout /> : null}
+        <Switch>
+          
+          <Route exact path='/signup' component={Signup}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/' render={(props) => loggedIn ? <BusinessList/> : <Home/>}/>
           <Route exact path='/businesses' component={BusinessList}/>
-          <Route />
+        </Switch>
         
         {/* <MainContainer /> */}
       </div>
@@ -35,4 +41,10 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
+}
+
+export default connect(mapStateToProps, { getCurrentUser })(App);

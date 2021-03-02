@@ -11,5 +11,3 @@ export const resetSignupForm = () => {
     type: "RESET_SIGNUP_FORM"
   }
 } 
-
-// async action creators
