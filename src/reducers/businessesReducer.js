@@ -5,6 +5,8 @@ const businessesReducer = (state = [], action) => {
   switch(action.type) {
     case "SET_BUSINESSES":
       return action.businesses
+    case "CLEAR_BUSINESSES":
+      return []
     case "ADD_BUSINESS":
       return state.concat(action.business)
     // case "UPDATE_BUSINESS":

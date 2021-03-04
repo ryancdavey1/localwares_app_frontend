@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
  const Home = ({}) => {
   return (
     <div>
-      Welcome to Localwares, please <Link to="/login">Log In</Link> or <Link to="/signup">Sign Up</Link> <br></br>
+      Welcome to LocalWares, please <Link to="/login">Log In</Link> or <Link to="/signup">Sign Up</Link> <br></br>
       {/* {currentUser ? <Logout/> : <Login/>} */}
     </div>
   )

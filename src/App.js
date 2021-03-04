@@ -27,14 +27,13 @@ class App extends React.Component {
     console.log("This is loggedIn" + loggedIn)
     return (
       <div className="App">
-        {/* <NavBar /> */}
-        {loggedIn ? <Logout /> : null}
+        {loggedIn ? <NavBar /> : null}
         <Switch>
           
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/' render={(props) => loggedIn ? <BusinessList/> : <Home/>}/>
-          <Route exact path='/businesses' component={BusinessList}/>
+          <Route exact path='/businesses' component={MainContainer}/>
           <Route exact path='/businesses/new' component={NewBusinessForm}/>
         </Switch>
         

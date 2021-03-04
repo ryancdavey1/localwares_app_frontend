@@ -42,6 +42,6 @@
   flex-direction: row;
 }
 
-/* body {
-  padding: 20px;
-} */
+a.active {
+  color: blue
+}

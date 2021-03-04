@@ -15,6 +15,12 @@ export const addBusiness = business => {
   }
 }
 
+export const clearBusinesses = () => {
+  return {
+    type: "CLEAR_BUSINESSES"
+  }
+}
+
 // asynchronous action creators 
 export const getBusinesses = () => {
   console.log("GETTING BUSINESSES")
