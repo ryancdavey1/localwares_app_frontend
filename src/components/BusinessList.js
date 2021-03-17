@@ -52,7 +52,7 @@ const BusinessList = props => {
   const businessCards = props.businesses.length > 0 ?
     // props.businesses.map(t => (<p key={t.id}><Link to={`/businesses/${t.id}`}>{t.attributes.name}</Link></p>)) :
     // null
-    props.businesses.map(business => (<Link to={`/businesses/${business.id}`}><li>{business.attributes.name}</li></Link>)) :
+    props.businesses.map(business => (<Link to={`/businesses/${business.id}`} key={business.id}><li>{business.attributes.name}</li></Link>)) :
     null
 
   return businessCards

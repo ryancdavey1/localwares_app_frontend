@@ -18,15 +18,16 @@ class MainContainer extends PureComponent {
         
         return (
             <>
-                <Switch>
+                {/* <Switch>
                     <Route exact path="/businesses">
                         <BusinessList businesses={this.props.businesses}/>
                     </Route>
                     <Route exact path="/businesses/new">
-                        <NewBusinessForm />
+                        <BusinessForm />
                     </Route>
                     <Route exact path="/businesses/:id" render={((routerProps) => <BusinessCard business={this.props.businesses.find(business => business.id === parseInt(routerProps.match.params.id))} /> ) }/>
-                </Switch>
+                </Switch> */}
+
             </>
         )
     }

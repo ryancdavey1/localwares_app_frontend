@@ -44,7 +44,7 @@ export const getBusinesses = () => {
   }
 }
 
-export const createBusiness = (businessData) => {
+export const createBusiness = (businessData, history) => {
   console.log("CREATING BUSINESS")
   //debugger
   return dispatch => {
@@ -59,7 +59,7 @@ export const createBusiness = (businessData) => {
       city: businessData.city,
       state: businessData.state,
       postal_code: businessData.postal_code,
-      category_id: 1,
+      category_id: businessData.category_id,
       user_id: businessData.userId
     }
     return fetch("http://localhost:3001/api/v1/businesses", {
@@ -77,8 +77,8 @@ export const createBusiness = (businessData) => {
           alert(resp.error)
         } else {
           dispatch(addBusiness(resp.data))
-          //dispatch(resetNewBusinessForm())
-          //history.push(`/businesses/${resp.data.id}`)
+          dispatch(resetNewBusinessForm())
+          history.push(`/businesses/${resp.data.id}`)
         }
       })
       .catch(console.log)

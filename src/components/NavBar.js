@@ -9,7 +9,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
   
   return (
     <div className="NavBar">
-      {/* {currentUser ? <strong>Welcome, {currentUser.attributes.name}</strong> : ""} */}
+      {currentUser ? <p><strong>Welcome, {currentUser.attributes.name}</strong> Logged in as: {currentUser.attributes.email}</p> : ""}
       <NavLink className="active" to="/"> Home  |  </NavLink>
       <NavLink className="active" to="/businesses"> All Businesses  |  </NavLink>
       <NavLink className="active" to="/businesses/new">Add Business  |  </NavLink>

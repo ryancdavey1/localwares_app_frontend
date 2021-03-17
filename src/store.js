@@ -5,6 +5,7 @@ import loginFormReducer from './reducers/loginFormReducer';
 import signupFormReducer from './reducers/signupFormReducer';
 import businessesReducer from './reducers/businessesReducer';
 import newBusinessFormReducer from './reducers/newBusinessFormReducer';
+import categoriesReducer from './reducers/categoriesReducer';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   loginForm: loginFormReducer,
   businesses: businessesReducer,
   signupForm: signupFormReducer,
-  newBusinessForm: newBusinessFormReducer
+  newBusinessForm: newBusinessFormReducer,
+  categories: categoriesReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 

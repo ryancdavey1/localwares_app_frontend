@@ -5,7 +5,7 @@ const initialState = {
   email: "",
   phone_number: "",
   delivery: "",
-  category: null,
+  category_id: null,
   website: "",
   address1: "",
   city: "",
@@ -14,15 +14,22 @@ const initialState = {
 }
 
 const newBusinessFormReducer = (state = initialState, action) => {
+  //console.log("UPDATE_NEW_BUSINESS_FORM");
+
   switch(action.type) {
     case "UPDATE_NEW_BUSINESS_FORM":
+      // const returnVal = {
+      //   ...state,
+      //   [action.formData.name]: action.formData.value
+      // }
       return {
-        ...state,
-        [action.formData.name]: action.formData.value
-      }
-      
+          ...state,
+          [action.formData.name]: action.formData.value
+        }
     case "RESET_NEW_BUSINESS_FORM":
       return initialState
+    case "SET_FORM_DATA_FOR_EDIT":
+      return action.tripFormData
     default:
       return state
   }
