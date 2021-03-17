@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import BusinessList from './BusinessList'
-import NewBusinessForm from './NewBusinessForm'
+import BusinessForm from './BusinessForm'
 import { Route, Switch } from 'react-router-dom'
 import BusinessCard from './BusinessCard'
 import {connect} from 'react-redux'

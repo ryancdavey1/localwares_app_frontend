@@ -1,16 +1,16 @@
 
-// const NewBusinessForm = ({ newBusinessFormData, updateNewBusinessForm, history, userId}) => {
+// const BusinessForm = ({ BusinessFormData, updateBusinessForm, history, userId}) => {
 //   const handleBusinessInfoInputChange = event => {
 //     event.preventDefault();
 //     const { name, value } = event.target
 //     // console.log(name)
 //     // console.log(value)
 //     // const updatedFormInfo = {
-//     //   ...newBusinessFormData,
+//     //   ...BusinessFormData,
 //     //   [name]: value
 //     // }
     
-//     updateNewBusinessForm(name, value)
+//     updateBusinessForm(name, value)
 //   }
 
 //   const handleSubmit = (formData, userId) => {
@@ -24,83 +24,83 @@
 //     <div>
 //       <form onSubmit={event => {
 //       event.preventDefault()
-//       handleSubmit(newBusinessFormData, userId)
+//       handleSubmit(BusinessFormData, userId)
 //     }}>
 //         <input
 //           name="name"
 //           placeholder="Name"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.name}
+//           value={BusinessFormData.name}
 //         />
 //         <br/>
 //         <input
 //           name="description"
 //           placeholder="Description"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.description}
+//           value={BusinessFormData.description}
 //         />
 //         <br/>
 //         <input
 //           name="open_hours"
 //           placeholder="Open Hours"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.open_hours}
+//           value={BusinessFormData.open_hours}
 //         />
 //         <br/>
 //         <input
 //           name="email"
 //           placeholder="Email"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.email}
+//           value={BusinessFormData.email}
 //         />
 //         <br/>
 //         <input
 //           name="phone_number"
 //           placeholder="Phone Number"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.phone_number}
+//           value={BusinessFormData.phone_number}
 //         />
 //         <br/>
 //         <input
 //           name="website"
 //           placeholder="Website Link"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.website}
+//           value={BusinessFormData.website}
 //         />
 //         <br/>
 //         <input
 //           name="category"
 //           placeholder="Category"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.category}
+//           value={BusinessFormData.category}
 //         />
 //         <br/>
 //         <input
 //           name="address1"
 //           placeholder="Address Line 1"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.address1}
+//           value={BusinessFormData.address1}
 //         />
 //         <br/>
 //         <input
 //           name="city"
 //           placeholder="City"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.city}
+//           value={BusinessFormData.city}
 //         />
 //         <br/>
 //         <input
 //           name="state"
 //           placeholder="State"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.state}
+//           value={BusinessFormData.state}
 //         />
 //         <br/>
 //         <input
 //           name="postal_code"
 //           placeholder="Postal Code"
 //           onChange={handleBusinessInfoInputChange}
-//           value={newBusinessFormData.postal_code}
+//           value={BusinessFormData.postal_code}
 //         />
 //         <br/>
 //         {/* <button onClick={handleItemButtonClick}>Add Item</button> */}
@@ -113,21 +113,21 @@
 // const mapStateToProps = state => {
 //   const userId = state.currentUser ? state.currentUser.id : ""
 //   return {
-//     newBusinessFormData: state.newBusinessForm,
+//     BusinessFormData: state.BusinessForm,
 //     userId
 //   }
 // }
 
-// export default connect(mapStateToProps, { updateNewBusinessForm, resetNewBusinessForm, createBusiness } )(NewBusinessForm)
+// export default connect(mapStateToProps, { updateBusinessForm, resetBusinessForm, createBusiness } )(BusinessForm)
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import { updateNewBusinessForm, resetNewBusinessForm } from '../actions/newBusinessFormActions';
+// import { updateBusinessForm, resetBusinessForm } from '../actions/BusinessFormActions';
 import { createBusiness } from '../actions/businessActions';
 import {withRouter} from 'react-router-dom';
 import { getCategories } from '../actions/categoryActions';
 import { getCurrentUser } from '../actions/currentUserActions.js'
 
-class NewBusinessForm extends Component {
+class BusinessForm extends Component {
 
   constructor(props) {
     super(props)
@@ -293,4 +293,4 @@ class NewBusinessForm extends Component {
   }
 } 
 
-export default withRouter(connect(null, { createBusiness })(NewBusinessForm))
+export default withRouter(connect(null, { createBusiness })(BusinessForm))

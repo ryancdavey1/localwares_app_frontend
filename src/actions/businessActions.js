@@ -1,4 +1,4 @@
-import { resetNewBusinessForm } from './newBusinessFormActions'
+import { resetBusinessForm } from './businessFormActions'
 
 // synchronous action creators
 export const setBusinesses = businesses => {
@@ -77,7 +77,7 @@ export const createBusiness = (businessData, history) => {
           alert(resp.error)
         } else {
           dispatch(addBusiness(resp.data))
-          dispatch(resetNewBusinessForm())
+          dispatch(resetBusinessForm())
           history.push(`/businesses/${resp.data.id}`)
         }
       })

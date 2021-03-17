@@ -8,8 +8,8 @@ import {connect} from 'react-redux';
 const BusinessDetails = ({business, currentUser}) => {
     //console.log(props.business.attributes);
   //let items = props.business.attributes.items;
-  console.log("BUSINESS", business);
-  console.log("ITEMS:", business.attributes.items);
+  //console.log("BUSINESS", business);
+  //console.log("ITEMS:", business.attributes.items);
   return (
     business ?
       <div>
@@ -20,7 +20,7 @@ const BusinessDetails = ({business, currentUser}) => {
         <p>Phone Number: {business.attributes.phone_number}</p>
         <p>Website: {business.attributes.website}</p>
         <p>Address: {business.attributes.address1}, {business.attributes.city}, {business.attributes.state}, {business.attributes.postal_code}</p>
-        <Link to={`/trips/${business.id}/edit`}>Edit this business</Link>
+        <Link to={`/businesses/${business.id}/edit`}>Edit this business</Link>
         <h4>Items:</h4>
         {business.attributes.items.map(item => <div><p>{item.name}</p><br/><p>{item.description}</p><br/><p>${parseFloat(String(item.price)).toFixed(2)}</p><br/></div>)}
       </div> :

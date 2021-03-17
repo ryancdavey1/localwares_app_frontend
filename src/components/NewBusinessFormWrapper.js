@@ -1,12 +1,13 @@
 import React from 'react';
-import NewBusinessForm from './NewBusinessForm'
+import BusinessForm from './BusinessForm'
 import { createBusiness } from '../actions/businessActions'
+import { resetBusinessForm } from '../actions/businessFormActions'
 import { connect } from 'react-redux'
 
 const NewBusinessFormWrapper = ({ history, createBusiness }) => {
 
     //console.log(formData)
-
+    resetBusinessForm();
   const handleSubmit = (formData, userId) => {
     
     createBusiness({
@@ -14,8 +15,7 @@ const NewBusinessFormWrapper = ({ history, createBusiness }) => {
       userId
     }, history)
   }
- return  <NewBusinessForm history={history} handleSubmit={handleSubmit} />
-  return <div>test</div>
+ return  <BusinessForm history={history} handleSubmit={handleSubmit} />
 };
 
 export default connect(null, { createBusiness })(NewBusinessFormWrapper);

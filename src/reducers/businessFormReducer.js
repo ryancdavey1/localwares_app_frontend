@@ -13,7 +13,7 @@ const initialState = {
   postal_code: ""
 }
 
-const newBusinessFormReducer = (state = initialState, action) => {
+const businessFormReducer = (state = initialState, action) => {
   //console.log("UPDATE_NEW_BUSINESS_FORM");
 
   switch(action.type) {
@@ -29,10 +29,10 @@ const newBusinessFormReducer = (state = initialState, action) => {
     case "RESET_NEW_BUSINESS_FORM":
       return initialState
     case "SET_FORM_DATA_FOR_EDIT":
-      return action.tripFormData
+      return action.businessFormData
     default:
       return state
   }
 }
 
-export default newBusinessFormReducer; 
+export default businessFormReducer; 

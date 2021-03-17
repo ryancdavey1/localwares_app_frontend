@@ -4,7 +4,7 @@ import currentUserReducer from './reducers/currentUserReducer';
 import loginFormReducer from './reducers/loginFormReducer';
 import signupFormReducer from './reducers/signupFormReducer';
 import businessesReducer from './reducers/businessesReducer';
-import newBusinessFormReducer from './reducers/newBusinessFormReducer';
+import businessFormReducer from './reducers/businessFormReducer';
 import categoriesReducer from './reducers/categoriesReducer';
 import thunk from 'redux-thunk';
 
@@ -14,7 +14,7 @@ const reducer = combineReducers({
   loginForm: loginFormReducer,
   businesses: businessesReducer,
   signupForm: signupFormReducer,
-  newBusinessForm: newBusinessFormReducer,
+  businessForm: businessFormReducer,
   categories: categoriesReducer
 })
 

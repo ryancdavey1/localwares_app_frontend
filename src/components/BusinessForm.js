@@ -1,13 +1,13 @@
 // import React from 'react';
 // // 1.  VVV We first grab the action creator
-// import { updateNewBusinessForm, resetNewBusinessForm } from '../actions/newBusinessFormActions';
+// import { updateBusinessForm, resetBusinessForm } from '../actions/BusinessFormActions';
 // import { createBusiness } from '../actions/businessActions';
 // import { connect } from 'react-redux'
 
 
 // // 3.  This means Redux gives us back a prop called updateTripForm
 // // which when invoked, Redux will now dispatch
-// const NewBusinessForm = ({ formData, updateNewBusinessForm, userId, business, handleSubmit, editMode }) => {
+// const BusinessForm = ({ formData, updateBusinessForm, userId, business, handleSubmit, editMode }) => {
 
 //   //const { name, startDate, endDate } = formData
 //   console.log("FORM DATA", formData)
@@ -18,7 +18,7 @@
 //     // 4.  This is not an invocation of just the action creator,
 //     // it's now Redux dispatching the action built by the action
 //     // creator with the appropriate arguments
-//     updateNewBusinessForm(name, value)
+//     updateBusinessForm(name, value)
 //   }
 
 //   return (
@@ -123,24 +123,24 @@
 
 // // 2.  We pass the action creator to redux's connect function
 // // using either mapDispatchToProps or the shorthand object syntax seen below.
-// export default connect(mapStateToProps, { updateNewBusinessForm })(NewBusinessForm);
+// export default connect(mapStateToProps, { updateBusinessForm })(BusinessForm);
 import React from 'react';
-import { updateNewBusinessForm } from '../actions/newBusinessFormActions';
+import { updateBusinessForm } from '../actions/businessFormActions';
 import { connect } from 'react-redux';
-
-const newBusinessForm = ({formData, updateNewBusinessForm, userId, handleSubmit}) => {
-  //console.log("form data", props)
+//
+const BusinessForm = ({formData, updateBusinessForm, userId, handleSubmit, business}) => {
+  console.log("form data", formData)
   const handleChange = (event) => {
     //event.preventDefault();
     console.log(event.target);
     const { name, value, id} = event.target;
-    if (name == "category_id") {
+    if (name === "category_id") {
       let newId = parseInt(id);
       console.log(name, newId)
-      updateNewBusinessForm(name, newId)
+      updateBusinessForm(name, newId)
     } else {
       console.log(name, value);
-      updateNewBusinessForm(name, value);
+      updateBusinessForm(name, value);
     }
   }
 
@@ -195,25 +195,25 @@ const newBusinessForm = ({formData, updateNewBusinessForm, userId, handleSubmit}
           value={formData.website}
         />
         <br/>
-        <div onChange={handleChange}>
-          <input type="radio" id={"1"} value="Coffee/Tea" name="category_id" /> Coffee/Tea
-          <input type="radio" id={"2"} value="Restaurant/Eatery" name="category_id" /> Restaurant/Eatery
-          <input type="radio" id={"3"} value="Bakery/Dessert" name="category_id" /> Bakery/Dessert
-          <input type="radio" id={"4"} value="Grocery" name="category_id" /> Grocery
-          <input type="radio" id={"5"} value="Event/Venue" name="category_id" /> Event/Venue
-          <input type="radio" id={"6"} value="Tech/Electronic" name="category_id" /> Tech/Electronic
-          <input type="radio" id={"7"} value="Music" name="category_id" /> Music
-          <input type="radio" id={"8"} value="Financial" name="category_id" /> Financial
-          <input type="radio" id={"9"} value="Exercise/Gym" name="category_id" /> Exercise/Gym
-          <input type="radio" id={"10"} value="Brewery/Pub" name="category_id" /> Brewery/Pub
-          <input type="radio" id={"11"} value="Bookshop" name="category_id" /> Bookshop
-          <input type="radio" id={"12"} value="Clothes/Accessories" name="category_id" /> Clothes/Accessories
-          <input type="radio" id={"13"} value="Furniture/Supply" name="category_id" /> Furniture/Supply
-          <input type="radio" id={"14"} value="Architecture/Interior Design" name="category_id" /> Architecture/Interior Design
-          <input type="radio" id={"15"} value="Health/Medical" name="category_id" /> Health/Medical
-          <input type="radio" id={"16"} value="Sports" name="category_id" /> Sports
-          <input type="radio" id={"17"} value="Nature" name="category_id" /> Nature
-          <input type="radio" id={"18"} value="Movies" name="category_id" /> Movies
+        <div>
+          <input type="radio" id={"1"} onChange={handleChange} checked={formData.category_id === 1} value="Coffee/Tea" name="category_id" /> Coffee/Tea
+          <input type="radio" id={"2"} onChange={handleChange} checked={formData.category_id === 2} value="Restaurant/Eatery" name="category_id" /> Restaurant/Eatery
+          <input type="radio" id={"3"} onChange={handleChange} checked={formData.category_id === 3} value="Bakery/Dessert" name="category_id" /> Bakery/Dessert
+          <input type="radio" id={"4"} onChange={handleChange} checked={formData.category_id === 4} value="Grocery" name="category_id" /> Grocery
+          <input type="radio" id={"5"} onChange={handleChange} checked={formData.category_id === 5} value="Event/Venue" name="category_id" /> Event/Venue
+          <input type="radio" id={"6"} onChange={handleChange} checked={formData.category_id === 6} value="Tech/Electronic" name="category_id" /> Tech/Electronic
+          <input type="radio" id={"7"} onChange={handleChange} checked={formData.category_id === 7} value="Music" name="category_id" /> Music
+          <input type="radio" id={"8"} onChange={handleChange} checked={formData.category_id === 8} value="Financial" name="category_id" /> Financial
+          <input type="radio" id={"9"} onChange={handleChange} checked={formData.category_id === 9} value="Exercise/Gym" name="category_id" /> Exercise/Gym
+          <input type="radio" id={"10"} onChange={handleChange} checked={formData.category_id === 10}  value="Brewery/Pub" name="category_id" /> Brewery/Pub
+          <input type="radio" id={"11"} onChange={handleChange} checked={formData.category_id === 11}  value="Bookshop" name="category_id" /> Bookshop
+          <input type="radio" id={"12"} onChange={handleChange} checked={formData.category_id === 12}  value="Clothes/Accessories" name="category_id" /> Clothes/Accessories
+          <input type="radio" id={"13"} onChange={handleChange} checked={formData.category_id === 13}  value="Furniture/Supply" name="category_id" /> Furniture/Supply
+          <input type="radio" id={"14"} onChange={handleChange} checked={formData.category_id === 14}  value="Architecture/Interior Design" name="category_id" /> Architecture/Interior Design
+          <input type="radio" id={"15"} onChange={handleChange} checked={formData.category_id === 15}  value="Health/Medical" name="category_id" /> Health/Medical
+          <input type="radio" id={"16"} onChange={handleChange} checked={formData.category_id === 16}  value="Sports" name="category_id" /> Sports
+          <input type="radio" id={"17"} onChange={handleChange} checked={formData.category_id === 17}  value="Nature" name="category_id" /> Nature
+          <input type="radio" id={"18"} onChange={handleChange} checked={formData.category_id === 18}  value="Movies" name="category_id" /> Movies
         </div>
         
         <br/>
@@ -253,10 +253,10 @@ const newBusinessForm = ({formData, updateNewBusinessForm, userId, handleSubmit}
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : ""
   return {
-    formData: state.newBusinessForm,
+    formData: state.businessForm,
     userId
   }
 }
 
 
-export default connect(mapStateToProps, { updateNewBusinessForm })(newBusinessForm);
+export default connect(mapStateToProps, { updateBusinessForm })(BusinessForm);
