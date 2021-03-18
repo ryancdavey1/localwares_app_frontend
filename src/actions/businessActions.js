@@ -28,6 +28,13 @@ export const clearBusinesses = () => {
   }
 }
 
+export const deleteBusinessSuccess = businessId => {
+  return {
+    type: "DELETE_BUSINESS",
+    businessId
+  }
+}
+
 // asynchronous action creators 
 export const getBusinesses = () => {
   console.log("GETTING BUSINESSES")
@@ -136,6 +143,25 @@ export const updateBusiness = (businessData, history) => {
   }
 }
 
-export const deleteBusiness = () => {
-  
+export const deleteBusiness = (businessId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/businesses/${businessId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          dispatch(deleteBusinessSuccess(businessId))
+          history.push(`/businesses`)
+        }
+      })
+      .catch(console.log)
+
+  }
 }
