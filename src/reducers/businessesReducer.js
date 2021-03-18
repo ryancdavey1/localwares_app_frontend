@@ -9,8 +9,8 @@ const businessesReducer = (state = [], action) => {
       return []
     case "ADD_BUSINESS":
       return state.concat(action.business)
-    // case "UPDATE_BUSINESS":
-    //   return state.map(business => business.id === action.business.id ? action.business : business)
+    case "UPDATE_BUSINESS":
+      return state.map(business => business.id === action.business.id ? action.business : business)
     // case "DELETE_BUSINESS":
     //   return state.filter(business => business.id === action.businessId ? false : true)
     default:

@@ -10,7 +10,8 @@ import BusinessList from './components/BusinessList';
 import BusinessCard from './components/BusinessCard';
 import BusinessDetails from './components/BusinessDetails';
 import BusinessForm from './components/BusinessForm';
-import NewBusinessFormWrapper from './components/NewBusinessFormWrapper.js'
+import NewBusinessFormWrapper from './components/NewBusinessFormWrapper.js';
+import EditBusinessFormWrapper from './components/EditBusinessFormWrapper.js';
 import NavBar from './components/NavBar';
 import MainContainer from './components/MainContainer';
 import { Route, Switch } from 'react-router-dom';
@@ -57,8 +58,8 @@ class App extends React.Component {
               //const category = categories.find(category => category.id === business.attributes.category_id)
               console.log(business)
               //sconsole.log(category)
-              business && setFormDataForEdit(business)
-              return <BusinessForm editMode business={business} {...props}/>
+              //business && setFormDataForEdit(business)
+              return <EditBusinessFormWrapper business={business} {...props}/>
               
               //return <BusinessDetails businesses={businesses} {...props}/>
 

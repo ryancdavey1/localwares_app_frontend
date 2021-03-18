@@ -128,7 +128,7 @@ import React from 'react';
 import { updateBusinessForm } from '../actions/businessFormActions';
 import { connect } from 'react-redux';
 //
-const BusinessForm = ({formData, updateBusinessForm, userId, handleSubmit, business}) => {
+const BusinessForm = ({formData, updateBusinessForm, userId, handleSubmit, business, editMode}) => {
   console.log("form data", formData)
   const handleChange = (event) => {
     //event.preventDefault();
@@ -151,7 +151,7 @@ const BusinessForm = ({formData, updateBusinessForm, userId, handleSubmit, busin
   return (
     <form onSubmit={event => {
       event.preventDefault()
-      handleSubmit(formData)
+      handleSubmit(formData, userId)
     }}>
       <input
           name="name"
@@ -245,7 +245,7 @@ const BusinessForm = ({formData, updateBusinessForm, userId, handleSubmit, busin
           value={formData.postal_code}
         />
         <br/>
-        <input type="submit" value="Create Business" />
+        <input type="submit" value={editMode ? "Update Business" : "Create Business"} />
     </form>
   )
 };
