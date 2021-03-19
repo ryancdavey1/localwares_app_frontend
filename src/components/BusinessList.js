@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const BusinessList = props => {
   const businessCards = props.businesses.length > 0 ?
-    props.businesses.map(business => (<Link to={`/businesses/${business.id}`} key={business.id}><li>{business.attributes.name}</li></Link>)) :
+    props.businesses.map(business => (<Link to={`/businesses/${business.id}`} key={business.id} className="active"><li>{business.attributes.name}</li></Link>)) :
     null
   return businessCards
 }
