@@ -14,6 +14,7 @@ import NewBusinessFormWrapper from './components/NewBusinessFormWrapper.js';
 import EditBusinessFormWrapper from './components/EditBusinessFormWrapper.js';
 import NavBar from './components/NavBar';
 import MainContainer from './components/MainContainer';
+import LandingPage from './components/LandingPage';
 import { Route, Switch } from 'react-router-dom';
 import { getCategories } from '../src/actions/categoryActions';
 import { setFormDataForEdit } from '../src/actions/businessFormActions.js'
@@ -37,7 +38,7 @@ class App extends React.Component {
           
           <Route exact path='/signup' component={Signup}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/' render={(props) => loggedIn ? <BusinessList/> : <Home/>}/>
+          <Route exact path='/' render={(props) => loggedIn ? <LandingPage/> : <Home/>}/>
           <Route exact path='/businesses' component={BusinessList}/>
           {/* <Route exact path='/businesses/new' component={BusinessForm}/> */}
           <Route exact path='/businesses/new' component={NewBusinessFormWrapper}/>

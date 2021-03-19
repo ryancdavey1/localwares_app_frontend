@@ -294,3 +294,132 @@ class BusinessForm extends Component {
 } 
 
 export default withRouter(connect(null, { createBusiness })(BusinessForm))
+
+
+
+// import React from 'react';
+// // 1.  VVV We first grab the action creator
+// import { updateBusinessForm, resetBusinessForm } from '../actions/BusinessFormActions';
+// import { createBusiness } from '../actions/businessActions';
+// import { connect } from 'react-redux'
+
+
+// // 3.  This means Redux gives us back a prop called updateTripForm
+// // which when invoked, Redux will now dispatch
+// const BusinessForm = ({ formData, updateBusinessForm, userId, business, handleSubmit, editMode }) => {
+
+//   //const { name, startDate, endDate } = formData
+//   console.log("FORM DATA", formData)
+
+//   const handleChange = event => {
+//     console.log("trigger Handle change")
+//     const { name, value } = event.target
+//     // 4.  This is not an invocation of just the action creator,
+//     // it's now Redux dispatching the action built by the action
+//     // creator with the appropriate arguments
+//     updateBusinessForm(name, value)
+//   }
+
+//   return (
+//     <form onSubmit={event => {
+//       event.preventDefault()
+//       handleSubmit(formData)
+//     }}>
+      // <input
+      //     name="name"
+      //     placeholder="Name"
+      //     onChange={handleChange}
+      //     value={formData.name}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="description"
+      //     placeholder="Description"
+      //     onChange={handleChange}
+      //     value={formData.description}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="open_hours"
+      //     placeholder="Open Hours"
+      //     onChange={handleChange}
+      //     value={formData.open_hours}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="email"
+      //     placeholder="Email"
+      //     onChange={handleChange}
+      //     value={formData.email}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="phone_number"
+      //     placeholder="Phone Number"
+      //     onChange={handleChange}
+      //     value={formData.phone_number}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="website"
+      //     placeholder="Website Link"
+      //     onChange={handleChange}
+      //     value={formData.website}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="category"
+      //     placeholder="Category"
+      //     onChange={handleChange}
+      //     value={formData.category}
+      //   />
+      //   {/* {this.renderCategories} */}
+      //   <br/>
+      //   <input
+      //     name="address1"
+      //     placeholder="Address Line 1"
+      //     onChange={handleChange}
+      //     value={formData.address1}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="city"
+      //     placeholder="City"
+      //     onChange={handleChange}
+      //     value={formData.city}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="state"
+      //     placeholder="State"
+      //     onChange={handleChange}
+      //     value={formData.state}
+      //   />
+      //   <br/>
+      //   <input
+      //     name="postal_code"
+      //     placeholder="Postal Code"
+      //     onChange={handleChange}
+      //     value={formData.postal_code}
+      //   />
+//         <br/>
+//         {/* <button onClick={handleItemButtonClick}>Add Item</button> */}
+//         <input type="submit" value="Create Business"/>
+//       {/* <input
+//         type="submit"
+//         value={editMode ? "Update Trip" : "Create Trip" }
+//       /> */}
+//     </form>
+// )};
+
+// const mapStateToProps = state => {
+//   const userId = state.currentUser ? state.currentUser.id : ""
+//   return {
+//     formData: state.businessForm,
+//     userId
+//   }
+// }
+
+// // 2.  We pass the action creator to redux's connect function
+// // using either mapDispatchToProps or the shorthand object syntax seen below.
+// export default connect(mapStateToProps, { updateBusinessForm })(BusinessForm);

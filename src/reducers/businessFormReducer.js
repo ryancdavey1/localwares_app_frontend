@@ -14,14 +14,8 @@ const initialState = {
 }
 
 const businessFormReducer = (state = initialState, action) => {
-  //console.log("UPDATE_NEW_BUSINESS_FORM");
-
   switch(action.type) {
     case "UPDATE_NEW_BUSINESS_FORM":
-      // const returnVal = {
-      //   ...state,
-      //   [action.formData.name]: action.formData.value
-      // }
       return {
           ...state,
           [action.formData.name]: action.formData.value
